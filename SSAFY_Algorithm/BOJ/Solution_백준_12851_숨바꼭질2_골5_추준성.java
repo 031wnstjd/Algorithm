@@ -48,7 +48,7 @@ public class Solution_백준_12851_숨바꼭질2_골5_추준성 {
 					// 걷기
 					if(!visited[current-1]) queue.offer(current-1);
 				}
-				if(0 <= current && current < K && !visited[current] && time < min) { // 갱신된 최소 시간보다 작아야 함 (백트래킹)
+				if(0 <= current && current < K && time < min) { // 갱신된 최소 시간보다 작아야 함 (백트래킹)
 					// 순간이동 or 걷기
 					if(current!=0) {
 						if(!visited[2*current]) queue.offer(2*current);
