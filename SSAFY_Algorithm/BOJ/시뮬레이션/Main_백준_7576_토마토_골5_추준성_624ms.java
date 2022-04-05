@@ -3,7 +3,7 @@ import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.StringTokenizer;
 
-public class Solution_백준_7576_토마토_골5_추준성_624ms {
+public class Main_백준_7576_토마토_골5_추준성_624ms {
 	
 	static class Node {
 		int r;
