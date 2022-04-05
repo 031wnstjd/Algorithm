@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Solution_백준_16935_배열돌리기3_실1_추준성 {
+public class Main_백준_16935_배열돌리기3_실1_추준성 {
 	
 	private static int[][] mapSave; // 연산을 지속적으로 적용해서 저장해야하므로 전역변수로 선언
 	public static void main(String[] args) throws Exception{
