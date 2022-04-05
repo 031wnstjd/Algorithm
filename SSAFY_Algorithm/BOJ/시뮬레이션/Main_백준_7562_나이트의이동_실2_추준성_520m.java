@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.StringTokenizer;
 
-public class Solution_백준_7562_나이트의이동_실2_추준성_520ms {
+public class Main_백준_7562_나이트의이동_실2_추준성_520ms {
 
 	/*
 	 * 1. 나이트가 이동할 수 있는 8방향 벡터 dr, dc 설정
