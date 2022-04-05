@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Solution_백준_14888_연산자끼워넣기_실1_추준성_84ms {
+public class Main_백준_14888_연산자끼워넣기_실1_추준성_84ms {
 	/*
 	 * 1. 완전탐색을 통해 최댓값, 최솟값 찾기
 	 */
