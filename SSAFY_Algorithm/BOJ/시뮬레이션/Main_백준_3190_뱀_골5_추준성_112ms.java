@@ -3,7 +3,7 @@ import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.StringTokenizer;
 
-public class Solution_백준_3190_뱀_골5_추준성_112ms {
+public class Main_백준_3190_뱀_골5_추준성_112ms {
 	/*
 	 * 0. 벽 바깥 == 테두리 == -1
 	 * 0. 사과 있는 곳 == 1
