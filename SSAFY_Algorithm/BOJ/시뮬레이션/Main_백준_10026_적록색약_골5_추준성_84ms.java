@@ -1,7 +1,7 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class Solution_백준_10026_적록색약_골5_추준성_84ms {
+public class Main_백준_10026_적록색약_골5_추준성_84ms {
 	/*
 	 * 1. 적록색약 : 빨간색과 초록색의 차이를 느끼지 못함 => R과 G를 동일하게 처리
 	 * 2. dfs 탐색
