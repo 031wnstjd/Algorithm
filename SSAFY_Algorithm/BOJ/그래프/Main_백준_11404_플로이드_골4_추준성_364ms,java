@@ -1,0 +1,73 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Main_백준_11404_플로이드_골4_추준성_364ms {
+	/*
+	 * - 구하고자 하는 것 : 모든 도시의 쌍(A,B)에 대해 A에서 B로 가는데 필요한 비용의 최솟값 
+	 * - "모든 쌍" => 플로이드-워샬 알고리즘
+	 */
+	private static final int INF = 99999999;
+
+	public static void main(String[] args) throws Exception{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
+		int N = Integer.parseInt(br.readLine()); // 도시의 개수
+		int M = Integer.parseInt(br.readLine()); // 버스의 개수
+		int[][] adjMatrix = new int[N+1][N+1];
+		StringTokenizer st = null;
+		for (int i = 0; i < M; i++) {
+			st = new StringTokenizer(br.readLine()," ");
+			int from = Integer.parseInt(st.nextToken());
+			int to = Integer.parseInt(st.nextToken());
+			int cost = Integer.parseInt(st.nextToken());
+			// 담은 적이 없으면 그냥 담음
+			if(adjMatrix[from][to] == 0) {
+				adjMatrix[from][to] = cost;
+			} 
+			// 이미 한 번 담았으면, 최소 비용으로 갱신 
+			else {
+				adjMatrix[from][to] = Math.min(adjMatrix[from][to], cost);
+			}
+		}
+		
+		// 1. 연결되지 않은 부분 충분히 큰 수로 채우기 (최소 비용을 갱신을 위함)
+		for (int i = 1; i <= N; i++) {
+			for (int j = 1; j <= N; j++) {
+				if(i == j) continue;
+				if(adjMatrix[i][j] == 0) adjMatrix[i][j] = INF;
+			}
+		}
+		
+		// 2. 플로이드-워샬 알고리즘 적용
+		// 경유지를 하나씩 추가해나가면서, '기존의 경로 비용'과 '추가한 경로를 고려했을 때의 비용'을 비교하여 최소 비용 갱신
+		for (int k = 1; k <= N; k++) {
+			for (int i = 1; i <= N; i++) {
+				if(i == k) continue;
+				for (int j = 1; j <= N; j++) {
+					if(i == j || j == k) continue;
+					if(adjMatrix[i][j] > adjMatrix[i][k] + adjMatrix[k][j])
+						adjMatrix[i][j] = adjMatrix[i][k] + adjMatrix[k][j];
+				}
+			}
+		}
+		
+		// 3. INF값을 0으로 다 바꿈 (i->j 갈 수 없는 경우 0을 출력해야함)
+		for (int i = 1; i <= N; i++) {
+			for (int j = 1; j <= N; j++) {
+				if(adjMatrix[i][j] == INF) adjMatrix[i][j] = 0;
+			}
+		}
+		
+		for (int i = 1; i <= N; i++) {
+			for (int j = 1; j <= N; j++) {
+				sb.append(adjMatrix[i][j]).append(" ");
+			}
+			sb.append("\n");
+		}
+		
+		System.out.print(sb.toString());
+		
+	} // end of main
+
+} // end of class
