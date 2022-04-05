@@ -1,7 +1,7 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class Solution_백준_2810_컵홀더_브1_추준성_72ms {
+public class Main_백준_2810_컵홀더_브1_추준성_72ms {
 	/*
 	 * <아이디어>
 	 * 1. 항상 *S 또는 *LL으로 시작하므로 컵홀더의 개수 cnt는 1로 초기화
