@@ -3,7 +3,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class Solution_백준_16926_배열돌리기1_실2_추준성 {
+public class Main_백준_16926_배열돌리기1_실2_추준성 {
 	private static int[] dr = {0, 1, 0,-1}; // 우하좌상
 	private static int[] dc = {1, 0,-1, 0};
 	
