@@ -3,7 +3,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class Solution_백준_2961_도영이가만든맛있는음식_실1_추준성 {
+public class Main_백준_2961_도영이가만든맛있는음식_실1_추준성 {
 	
 	private static int N;
 	private static int[][] ingredient;
