@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.StringTokenizer;
 
-public class Solution_백준_1944_복제로봇_골2_추준성_232ms {
+public class Main_백준_1944_복제로봇_골2_추준성_232ms {
 	/*
 	 * 1. 시작정점(S)과 열쇠가 있는 정점(K)들을 하나도 빠짐없이(모든 열쇠를 찾아야하기 때문) 이었을 때, 총 이동거리(==간선 비용)가 최소가 돼야 함 => MST(최소신장트리) 
 	 * 2. 정점대비 간선 수가 많으므로 PRIM 알고리즘이 선택 => BFS 활용해서 인접행렬 만들고, PRIM 알고리즘 적용 => 최소 총 이동거리 출력
