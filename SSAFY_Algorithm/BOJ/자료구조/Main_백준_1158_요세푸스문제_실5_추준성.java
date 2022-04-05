@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.StringTokenizer;
 
-public class Solution_백준_1158_요세푸스_실5_추준성 {
+public class Main_백준_1158_요세푸스문제_실5_추준성 {
 	
 	/* 원리
 	 * 	// 1. queue가 빌 때까지 반복 실행
