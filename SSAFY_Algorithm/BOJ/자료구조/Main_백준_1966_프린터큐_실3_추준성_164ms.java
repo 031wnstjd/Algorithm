@@ -3,7 +3,7 @@ import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.StringTokenizer;
 
-public class Solution_백준_1966_프린터큐_실3_추준성_164ms {
+public class Main_백준_1966_프린터큐_실3_추준성_164ms {
 	
 	/*
 	 * queue의 최댓값을 찾아서 지속적으로 최댓값부터 poll
