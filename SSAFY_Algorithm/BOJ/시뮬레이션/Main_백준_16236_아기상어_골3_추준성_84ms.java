@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
-public class Solution_백준_16236_아기상어_골3_추준성_84ms {
+public class Main_백준_16236_아기상어_골3_추준성_84ms {
 	/*
 	 * 1. BFS의 기본적인 틀을 지키면서, PriorityQueue를 활용할 때, 정렬 기준을 명확히 선언하는 게 중요!(=> 일반적인 BFS 탐색 시 발생할 수 있는 '너비 순서 뒤틀림 현상'을 방지할 수 있음)  
 	 * 2. BFS는 결국 모든 영역을 탐색하기 위한 도구일 뿐, 그 외에 추가적인 조건들은 우선순위큐의 정렬 기준에 따라 내부적으로 구현됨
