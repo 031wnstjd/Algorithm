@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
-public class Solution_백준_1753_최단경로_골5_추준성_632ms {
+public class Main_백준_1753_최단경로_골5_추준성_632ms {
 	
 	static class Node { // 인접 리스트로 그래프 정보를 입력받기 위함
 		int vertex;
