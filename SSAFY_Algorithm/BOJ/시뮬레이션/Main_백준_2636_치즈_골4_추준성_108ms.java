@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.StringTokenizer;
 
-public class Main_백준_2636_골4_치즈_추준성_108ms {
+public class Main_백준_2636_치즈_골4_추준성_108ms {
 	/*
 	 * 1. (0,0)부터 BFS탐색 진행 -> 값이 0이고 방문을 안한 곳만 방문
 	 * 2. 값이 1인 곳을 만나면 값을 0으로 바꾸고 방문처리
