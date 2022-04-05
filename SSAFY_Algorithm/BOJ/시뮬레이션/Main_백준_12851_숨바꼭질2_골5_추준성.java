@@ -3,7 +3,7 @@ import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.StringTokenizer;
 
-public class Solution_백준_12851_숨바꼭질2_골5_추준성 {
+public class Main_백준_12851_숨바꼭질2_골5_추준성 {
 	/*
 	 * 1. N == K 이면 끝
 	 * 2. N > K 이면 걷기
@@ -14,7 +14,7 @@ public class Solution_백준_12851_숨바꼭질2_골5_추준성 {
 	 */
 	
 	/*
-	 * 백트래킹 비적용시 : 344ms
+	 * 백트래킹 미적용시 : 344ms
 	 * 백트래킹 적용시 : 196ms
 	 */
 	
