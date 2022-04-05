@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.StringTokenizer;
 
-public class Solution_백준_17471_게리맨더링_골4_추준성 {
+public class Main_백준_17471_게리맨더링_골4_추준성 {
 	private static boolean[] firstArea;
 	private static int[] population;
 	private static int N;
