@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.StringTokenizer;
 
-public class Solution_백준_15686_치킨배달_골5_추준성_292ms {
+public class Main_백준_15686_치킨배달_골5_추준성_292ms {
 	private static int M;
 	private static int N;
 	private static LinkedList<int[]> chickenPos;
