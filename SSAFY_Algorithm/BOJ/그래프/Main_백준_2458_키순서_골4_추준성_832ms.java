@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class Main_백준_2458_키순서_골4_추준성 {
+public class Main_백준_2458_키순서_골4_추준성_832ms {
 	/*
 	 * <조건 분석> - 자기 자신을 기준으로 크고 작음이 명확히 이분법적으로 분리되어야 자신의 키가 몇번째인지 알 수 있음 - 즉, '자기
 	 * 자신보다 작은 사람 수 + 자기 자신보다 큰 사람 수 = 총 학생의 수'가 성립할 때만 자신의 키를 알 수 있음
