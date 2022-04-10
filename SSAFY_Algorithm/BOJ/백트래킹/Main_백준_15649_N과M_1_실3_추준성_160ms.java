@@ -20,12 +20,8 @@ public class Main_백준_15649_N과M_1_실3_추준성_160ms {
 		N = Integer.parseInt(st.nextToken());
 		M = Integer.parseInt(st.nextToken());
 		
-		input = new int[N+1];
 		visited = new boolean[N+1];
 		output = new int[M];
-		for (int i = 1; i <= N; i++) {
-			input[i] = i; // 1, 2, 3, 4, 5, ..., N-1, N
-		}
 		
 		perm(0);
 		
