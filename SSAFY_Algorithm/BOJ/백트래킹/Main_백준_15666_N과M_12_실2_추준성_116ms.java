@@ -4,12 +4,13 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.StringTokenizer;
 
-public class Main_백준_15666_N과M_12_실2_추준성_204ms {
+public class Main_백준_15666_N과M_12_실2_추준성_116ms {
 	private static int N;
 	private static int M;
 	private static int[] input;
 	private static int[] output;
 	private static HashSet<String> set;
+	private static StringBuilder ans;
 
 	/*
 	 * 1. 중복조합
@@ -25,7 +26,8 @@ public class Main_백준_15666_N과M_12_실2_추준성_204ms {
 		input = new int[N];
 		output = new int[M];
 		set = new HashSet<String>();
-
+		ans = new StringBuilder();
+		
 		st = new StringTokenizer(br.readLine());
 		for (int i = 0; i < N; i++) {
 			input[i] = Integer.parseInt(st.nextToken());
@@ -35,6 +37,7 @@ public class Main_백준_15666_N과M_12_실2_추준성_204ms {
 		
 		comb(0, 0);
 		
+		System.out.println(ans.toString());
 	} // end of main
 	
 	static void comb(int depth, int start) {
@@ -47,7 +50,7 @@ public class Main_백준_15666_N과M_12_실2_추준성_204ms {
 			
 			if(!set.contains(s)) {
 				set.add(s);
-				System.out.println(sb.toString());
+				ans.append(s).append("\n");
 			}
 			return;
 		}
