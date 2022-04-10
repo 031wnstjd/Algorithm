@@ -4,21 +4,20 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.StringTokenizer;
 
-public class Main_백준_15665_N과M_11_실2_추준성_1112ms {
+public class Main_백준_15665_N과M_11_실2_추준성_1104ms {
 	private static int N;
 	private static int M;
 	private static int[] input;
 	private static int[] output;
-	private static StringBuilder sb;
 	private static HashSet<String> set;
-
+	private static StringBuilder ans;
 	/*
-	 * 중복 결과가 출력되지 않게끔 해싱기법 활용 (HashSet 활용)
+	 * 1. 중복순열
+	 * 2. 중복 결과가 출력되지 않게끔 해싱기법 활용 (HashSet 활용)
 	 */
 	
 	public static void main(String[] args) throws Exception{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		sb = new StringBuilder();
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		N = Integer.parseInt(st.nextToken());
 		M = Integer.parseInt(st.nextToken());
@@ -26,6 +25,7 @@ public class Main_백준_15665_N과M_11_실2_추준성_1112ms {
 		input = new int[N];
 		output = new int[M];
 		set = new HashSet<String>();
+		ans = new StringBuilder();
 		
 		st = new StringTokenizer(br.readLine());
 		for (int i = 0; i < N; i++) {
@@ -36,27 +36,24 @@ public class Main_백준_15665_N과M_11_실2_추준성_1112ms {
 		
 		perm(0);
 		
-		System.out.print(sb.toString());
+		System.out.print(ans.toString());
+		
 	} // end of main
 	
 	static void perm(int depth) {
 		if(depth == M) {
-			
-			// 해싱 기법 (중복 결과가 출력 안 되게끔)
-			StringBuilder strb = new StringBuilder();
-			for (int i = 0; i < M; i++) {
-				strb.append(output[i]);
-			}
-			String s = strb.toString();
-			
-			if(set.contains(s)) return; // 기존에 추가된 수열이면 출력 안 하고 리턴
-			set.add(s); // 아니면 추가
-			
-			// 결과 출력
+			StringBuilder sb = new StringBuilder();
 			for (int i = 0; i < M; i++) {
 				sb.append(output[i]).append(" ");
 			}
-			sb.append("\n");
+			String s = sb.toString();
+
+			// 해싱 기법 (중복 결과가 출력 안 되게끔)
+			if(!set.contains(s)) {
+				set.add(s); // 아니면 추가
+				ans.append(s).append("\n");
+			}
+			
 			return;
 		}
 		
