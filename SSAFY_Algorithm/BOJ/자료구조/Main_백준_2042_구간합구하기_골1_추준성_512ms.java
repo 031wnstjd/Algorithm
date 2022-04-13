@@ -38,36 +38,36 @@ public class Main_백준_2042_구간합구하기_골1_추준성_512ms {
 	} // end of main
 	
 	// 세그먼트 트리 생성
-	private static long buildRec(int node, int nodeLeft, int nodeRight) {
-		if(nodeLeft == nodeRight) return tree[node] = nums[nodeLeft]; // 리프노드이면
+	private static long buildRec(int node, int start, int end) {
+		if(start == end) return tree[node] = nums[start]; // 리프노드이면
 		
-		int mid = nodeLeft + (nodeRight - nodeLeft) / 2; // stackOverFlow 방지용 코드 ( 'nodeLeft + nodeRight / 2' 로 짜면 스택오버플로우 발생)
-		long leftVal = buildRec(node * 2, nodeLeft, mid);
-		long rightVal = buildRec(node * 2 + 1, mid + 1, nodeRight);
+		int mid = start + (end - start) / 2; // stackOverFlow 방지용 코드 ( 'nodeLeft + nodeRight / 2' 로 짜면 스택오버플로우 발생)
+		long leftVal = buildRec(node * 2, start, mid);
+		long rightVal = buildRec(node * 2 + 1, mid + 1, end);
 		
 		return tree[node] = sum(leftVal, rightVal);		
 	}
 
 	// 세그먼트 트리 업데이트
-	private static long updateRec(int index, long newValue, int node, int nodeLeft, int nodeRight) {
-		if(index < nodeLeft || nodeRight < index) return tree[node]; // index 노드이지않거나
-		if(nodeLeft == nodeRight) return tree[node] = newValue; // index 노드이거나
+	private static long updateRec(int index, long newValue, int node, int start, int end) {
+		if(index < start || end < index) return tree[node]; // index 노드이지않거나
+		if(start == end) return tree[node] = newValue; // index 노드이거나
 		
-		int mid = nodeLeft + (nodeRight - nodeLeft) / 2;
-		long leftVal = updateRec(index, newValue, node * 2, nodeLeft, mid);
-		long rightVal = updateRec(index, newValue, node * 2 + 1, mid + 1, nodeRight);
+		int mid = start + (end - start) / 2;
+		long leftVal = updateRec(index, newValue, node * 2, start, mid);
+		long rightVal = updateRec(index, newValue, node * 2 + 1, mid + 1, end);
 		
 		return tree[node] = sum(leftVal, rightVal);
 	}
 
 	// 세그먼트 트리 구간합 구하기
-	private static long queryRec(int left, int right, int node, int nodeLeft, int nodeRight) {
-		if(right < nodeLeft || nodeRight < left) return 0; // [left, right] 구간에 포함 되지 않거나
-		if(left <= nodeLeft && nodeRight <= right) return tree[node]; // [left, right] 구간에 포함 되거나
+	private static long queryRec(int left, int right, int node, int start, int end) {
+		if(right < start || end < left) return 0; // [left, right] 구간에 포함 되지 않거나
+		if(left <= start && end <= right) return tree[node]; // [left, right] 구간에 포함 되거나
 		
-		int mid = nodeLeft + (nodeRight - nodeLeft) / 2;
-		long leftVal = queryRec(left, right, node * 2, nodeLeft, mid);
-		long rightVal = queryRec(left, right, node * 2 + 1, mid + 1, nodeRight);
+		int mid = start + (end - start) / 2;
+		long leftVal = queryRec(left, right, node * 2, start, mid);
+		long rightVal = queryRec(left, right, node * 2 + 1, mid + 1, end);
 		
 		return sum(leftVal, rightVal);
 	}
