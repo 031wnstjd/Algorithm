@@ -42,11 +42,8 @@ public class Main_백준_1520_내리막길_골4_추준성_332ms {
 			}
 		}
 		
-		System.out.println(dfs(0,0)); // 재귀로 전달된 값 출력
+		System.out.print(dfs(0,0)); // 재귀로 전달된 값 출력
 		
-		for (int i = 0; i < m; i++) {
-			System.out.println(Arrays.toString(dp[i]));
-		}
 		
 	} // end of main
 	
