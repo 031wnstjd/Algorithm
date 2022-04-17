@@ -97,6 +97,7 @@ public class Main_백준_10814_나이순정렬_실5_추준성_476ms {
 			k++;
 		}
 		
+		// 5. 정렬된 배열인 sorted 정보를 members로 업데이트
 		for (int idx = start; idx <= end; idx++) {
 			members[idx] = sorted[idx];
 		}
