@@ -7,6 +7,14 @@ public class Main_백준_23290_마법사상어와복제_골1_추준성_384ms {
 	/*
 	 * - 이전 시간 초과 이유 : ArrayList, LinkedList의 remove 메소드를 사용하여 fishList에서 해당하는 물고기를 제거하려고 했음 (탐색 시간이 너무 오래 걸림, 오버헤드 큼)
 	 * - 크기가 '정해진' 반복은 for문으로 해당 크기만큼 반복하기
+	 * 
+	 * <정리>
+	 * - 빠뜨리기 쉬운 조건 1. 리스트에 포함된 '객체까지 복사'하려면 얕은 복사가 아닌 '깊은 복사'를 활용해야 함 - 'Cloneable 인터페이스'의 clone 메소드 오버라이드
+	 * - 빠뜨리기 쉬운 조건 2. 상어의 이동 경로 중 '물고기가 존재하는 곳'만 냄새 처리
+	 * - 빠뜨리기 쉬운 조건 3. 상어가 방문한 곳은 먹이를 이미 먹었으므로, 다시 방문할 때 카운트 X
+	 * 
+	 * - 구현 팁 1. 해당 문구(구현부)를 어떡해야 가장 '시간효율적'으로 짤 수 있는지 '자료구조/방법' 고민하기
+	 * - 구현 팁 2. 상대 시간이 아닌 '절대 시간'을 냄새 정보로 할당하여 비교 처리
 	 */
 	
 	static int[] shkdr = {-1, 0, 1, 0}; // 상 좌 하 우
@@ -92,7 +100,7 @@ public class Main_백준_23290_마법사상어와복제_골1_추준성_384ms {
 	
 	static void copyFish() throws CloneNotSupportedException {
 		for (Fish fish : fishList) {
-			copyList.add(fish.clone());
+			copyList.add(fish.clone()); // (빠뜨리기 쉬운 조건 1 - 리스트에 포함된 객체까지 복사하려면 얕은 복사가 아닌 깊은 복사를 활용해야 함 - Cloneable 인터페이스 메소드 오버라이드)
 		}
 	}
 	
@@ -131,13 +139,12 @@ public class Main_백준_23290_마법사상어와복제_골1_추준성_384ms {
 		for (int i = 0; i < 3; i++) { // 물고기 제거 & 냄새 남기기
 			nr += shkdr[maxFeedDir[i]];
 			nc += shkdc[maxFeedDir[i]];
-			
-			if(fishMap[nr][nc].size() != 0) { // 물고기가 존재하는 곳에서만 실행!!
-				fishMap[nr][nc].clear(); // 해당위치 물고기 모두 삭제
+			if(fishMap[nr][nc].size() != 0) { // 물고기가 존재하는 곳에서만 실행!! (빠뜨리기 쉬운 조건 2 - '물고기가 존재하는 곳'만 냄새 처리)
+				fishMap[nr][nc].clear(); // 해당위치 물고기 모두 삭제 (구현 팁 1 - 해당 문구(구현부)를 어떡해야 가장 시간효율적으로 짤 수 있는지 자료구조/방법 고민하기)
 				smellMap[nr][nc] = step; // 냄새 남기기
 			}
 		}
-		shark.r = nr; // 상어 이동
+		shark.r = nr; // 상어 이동 (원본을 변경)
 		shark.c = nc;
 	}
 	
@@ -155,7 +162,7 @@ public class Main_백준_23290_마법사상어와복제_골1_추준성_384ms {
 				
 				if(nr < 0 || nr >= 4 || nc < 0 || nc >= 4) return; // 범위 밖으로 나가면 리턴 (이동 불가)
 				
-				if(!visited[nr][nc]) fishCnt += fishMap[nr][nc].size(); // 해당 위치에 있는 물고기 모두 먹기
+				if(!visited[nr][nc]) fishCnt += fishMap[nr][nc].size(); // 해당 위치에 있는 물고기 모두 먹기 (빠뜨리기 쉬운 조건 3 - 방문한 곳은 먹이를 이미 먹었으므로 카운트 X)
 				
 				visited[nr][nc] = true;
 				tmpDir[i] = setDir;
@@ -179,7 +186,7 @@ public class Main_백준_23290_마법사상어와복제_골1_추준성_384ms {
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {
 				if(smellMap[i][j] == 0) continue;
-				if(step == smellMap[i][j] + 2) smellMap[i][j] = 0;
+				if(step == smellMap[i][j] + 2) smellMap[i][j] = 0; // 현재 step과 2만큼 차이날 때 냄새가 사라짐 (구현 팁 2 - 상대 시간이 아닌 절대 시간을 할당하여 비교 처리)
 			}
 		}
 	}
