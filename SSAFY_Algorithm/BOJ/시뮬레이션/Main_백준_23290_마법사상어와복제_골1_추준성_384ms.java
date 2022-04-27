@@ -3,7 +3,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class Main_백준_23290_마법사상어와복제_골1_추준성_448ms {
+public class Main_백준_23290_마법사상어와복제_골1_추준성_384ms {
 	/*
 	 * <조건>
 	 * 1. 둘 이상의 물고기가 같은 칸에 있을 수도 있으며, 마법사 상어와 물고기가 같은 칸에 있을 수도 있다.
@@ -22,6 +22,8 @@ public class Main_백준_23290_마법사상어와복제_골1_추준성_448ms {
 	 * 10. 그러한 방법이 여러가지인 경우 사전 순으로 가장 앞서는 방법을 이용 (노트참고)
 	 * 11. 두 번 전 연습에서 생긴 물고기의 냄새가 격자에서 사라진다. (냄새 class의 시간 요소 추가)
 	 * 12. 복제 마법이 완료된다. 모든 복제된 물고기는 1에서의 위치와 방향을 그대로 갖게 된다.(tmp[][] 배열에 저장해놓고 이후 업데이트)
+	 * 
+	 * 시간 초과 이유 : ArrayList, LinkedList의 remove 메소드를 사용하여 fishList에서 해당하는 물고기를 제거하려고 했음 (탐색 시간이 너무 오래 걸림, 오버헤드 큼)
 	 * 
 	 */
 	
@@ -99,8 +101,8 @@ public class Main_백준_23290_마법사상어와복제_골1_추준성_448ms {
 			moveFish(); // 물고기 이동
 			moveShark(step); // 상어 이동
 			removeSmell(step); // 냄새 제거
-			copyMagic(); // 복제 마법 적용
 			resetMap();
+			copyMagic(); // 복제 마법 적용
 		} // end of for S
 			
 		System.out.print(fishList.size());
@@ -148,7 +150,7 @@ public class Main_백준_23290_마법사상어와복제_골1_추준성_448ms {
 			nr += shkdr[maxFeedDir[i]];
 			nc += shkdc[maxFeedDir[i]];
 			
-			if(fishMap[nr][nc].size() != 0) {
+			if(fishMap[nr][nc].size() != 0) { // 물고기가 존재하는 곳에서만 실행!!
 				fishMap[nr][nc].clear(); // 해당위치 물고기 모두 삭제
 				smellMap[nr][nc] = step; // 냄새 남기기
 			}
@@ -202,7 +204,7 @@ public class Main_백준_23290_마법사상어와복제_골1_추준성_448ms {
 	
 	static void copyMagic() {
 		for (Fish fish : copyList) {
-			fishMap[fish.r][fish.c].add(fish);
+			fishList.add(fish);
 		}
 		copyList.clear();
 	}
