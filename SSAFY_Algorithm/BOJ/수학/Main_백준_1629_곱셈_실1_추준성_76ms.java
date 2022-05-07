@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Main_백준_1629_곱셈_실1_추준성 {
+public class Main_백준_1629_곱셈_실1_추준성_76ms {
 	/*
 	 * 모듈러 연산 : (a*b)%c == ((a%c)*(b%c))%c
 	 */
