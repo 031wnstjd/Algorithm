@@ -33,16 +33,16 @@ public class Main_백준_1991_트리순회_실1_추준성_76ms {
 		for (int i = 0; i < N; i++) {
 			st = new StringTokenizer(br.readLine(), " ");
 			char root = st.nextToken().charAt(0);
-			int left = st.nextToken().charAt(0) - 'A' + 1;
+			int left = st.nextToken().charAt(0) - 'A' + 1; // 인덱스 값과 알파벳을 동기화
 			int right = st.nextToken().charAt(0) - 'A' + 1;
 			tree[root - 'A' + 1] = new Node(root, left, right);
 		}
 		
-		preOrder(1);
+		preOrder(1); // 루트부터 탐색 시작
 		sb.append("\n");
-		inOrder(1);
+		inOrder(1); // 루트부터 탐색 시작
 		sb.append("\n");
-		postOrder(1);
+		postOrder(1); // 루트부터 탐색 시작
 		
 		System.out.print(sb.toString());
 	} // end of main
@@ -53,7 +53,7 @@ public class Main_백준_1991_트리순회_실1_추준성_76ms {
 		int right = tree[n].right;
 		
 		sb.append(root);
-		if(left != -18) preOrder(left); // '.'이 아닐 때
+		if(left != -18) preOrder(left); // '.'이 아닐 때 (== 기저조건)
 		if(right != -18) preOrder(right);
 	}
 	private static void inOrder(int n) {
@@ -61,7 +61,7 @@ public class Main_백준_1991_트리순회_실1_추준성_76ms {
 		int left = tree[n].left;
 		int right = tree[n].right;
 		
-		if(left != -18) inOrder(left); // '.'이 아닐 때
+		if(left != -18) inOrder(left);
 		sb.append(root);
 		if(right != -18) inOrder(right);
 	}
@@ -70,7 +70,7 @@ public class Main_백준_1991_트리순회_실1_추준성_76ms {
 		int left = tree[n].left;
 		int right = tree[n].right;
 		
-		if(left != -18) postOrder(left); // '.'이 아닐 때
+		if(left != -18) postOrder(left); 
 		if(right != -18) postOrder(right);
 		sb.append(root);
 	}
