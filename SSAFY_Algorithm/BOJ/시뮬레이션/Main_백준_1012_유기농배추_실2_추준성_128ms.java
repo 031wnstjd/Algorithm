@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class Main_백준_유기농배추_실2_추준성_108ms {
+public class Main_백준_1012_유기농배추_실2_추준성_128ms {
 	/*
 	 * <설계>
 	 * - 영역의 개수 == 최소의 배추흰지렁이 마리 수
@@ -55,7 +55,9 @@ public class Main_백준_유기농배추_실2_추준성_108ms {
 	private static void bfs(int sr, int sc) {
 		
 		Queue<int[]> queue = new LinkedList<>();
+		
 		queue.add(new int[] {sr, sc});
+		visited[sr][sc] = true;
 		
 		while(!queue.isEmpty()) {
 			int[] cur = queue.poll();
