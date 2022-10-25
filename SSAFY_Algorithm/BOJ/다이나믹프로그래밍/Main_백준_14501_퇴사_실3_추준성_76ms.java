@@ -22,7 +22,7 @@ public class Main_백준_14501_퇴사_실3_추준성_76ms {
 			
 			if(endIdx <= N) dp[endIdx] = Math.max(dp[endIdx], dp[startIdx] + counsels[startIdx][1]);
 			
-			dp[startIdx+1] = Math.max(dp[startIdx+1], dp[i]); // 다음 날짜의 값이 업데이트 되지 않아 0일 수도 있으므로, 현재 최댓값을 고려해서 값 결정
+			dp[startIdx+1] = Math.max(dp[startIdx+1], dp[i]); // 현재 날짜의 값이 업데이트 되지 않아 0일 수도 있으므로, 이전 최댓값을 고려해서 값 결정
 		}
 		
 		System.out.println(dp[N]);
