@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.StringTokenizer;
 
-public class Main_백준_14502_연구소_골4_추준성 {
+public class Main_백준_14502_연구소_골4_추준성_564ms {
 
 	static class Virus {
 		int r, c;
